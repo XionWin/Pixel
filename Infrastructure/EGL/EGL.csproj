@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+   <ItemGroup>
+    <ProjectReference Include="..\Extension\Extension.csproj" />
+    <ProjectReference Include="..\LIBC\LIBC.csproj" />
+    <ProjectReference Include="..\GBM\GBM.csproj" />
+  </ItemGroup>
+</Project>

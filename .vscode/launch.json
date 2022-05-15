@@ -1,0 +1,44 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": ".NET Core Launch (Desktop)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/App/bin/Debug/net6.0/App.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/App",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": ".NET Core Launch (KMS)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "copy",
+            "program": "dotnet",
+            "args": ["App.dll"],
+            "cwd": "/home/pi/Documents/Bin/Guid.Net/",
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "pipeTransport": {
+				"pipeCwd": "${workspaceRoot}",
+				"pipeProgram": "ssh",
+				"pipeArgs": [
+					"-T",
+                    "pi@192.168.0.205"
+				],
+				"debuggerPath": "sudo ~/.vsdbg/vsdbg"
+			}
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        }
+    ]
+}
