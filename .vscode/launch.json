@@ -5,17 +5,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": ".NET Core Launch (Desktop)",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build",
-            "program": "${workspaceFolder}/App/bin/Debug/net6.0/App.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}/App",
-            "console": "internalConsole",
-            "stopAtEntry": false
-        },
-        {
             "name": ".NET Core Launch (KMS)",
             "type": "coreclr",
             "request": "launch",
@@ -34,6 +23,17 @@
 				],
 				"debuggerPath": "sudo ~/.vsdbg/vsdbg"
 			}
+        },
+        {
+            "name": ".NET Core Launch (Desktop)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/App/bin/Debug/net6.0/App.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/App",
+            "console": "internalConsole",
+            "stopAtEntry": false
         },
         {
             "name": ".NET Core Attach",
