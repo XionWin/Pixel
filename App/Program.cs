@@ -66,9 +66,6 @@ void ContextInit(EGL.KMSContext ctx)
 
 void ContextRender(OpenGL.GFX.GfxProgram program, IEnumerable<Shape> shapes)
 {
-
-    
-
     var color = new Graphic.Drawing.Color.HSLA(angle = angle >= 360 ? 0 : ++angle, 1f, 0.2f, 1f);
     var rgb = color.ToRGB();
 
