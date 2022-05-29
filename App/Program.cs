@@ -36,18 +36,17 @@ float angle = 0f;
 var direction = true;
 using (var ctx = new EGL.KMSContext(drm, EGL.RenderableSurfaceType.OpenGLES) { VerticalSynchronization = true })
 {
-    using (var program = new OpenGL.GFX.GfxProgram(@"shader/simplevertshader_v3.glsl", @"shader/simplefragshader_v3.glsl"))
+    using (var program = new OpenGL.GFX.GfxProgram(@"shader/simple.vert", @"shader/simple.frag"))
     {
         OpenGL.ES.glUseProgram(program);
         OpenGL.ES.glBindVertexArray(0);
 
         var shapes = new [] {
-            new Circle(1080/2, 1920/2, 1),
+            new Circle(1280/2, 1024/2, 1),
         };
         ctx.Initialize(ContextInit).Render(() => ContextRender(program, shapes));
     }
 }
-
 
 void ContextInit(EGL.KMSContext ctx)
 {
