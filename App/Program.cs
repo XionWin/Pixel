@@ -1,6 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using Graphic.Drawing;
 using Graphic.Drawing.Color;
+using OpenGL.GFX;
 
 internal class Program
 {
@@ -46,13 +47,14 @@ internal class Program
                 OpenGL.ES.glBindVertexArray(0);
 
                 var shapes = new[] {
-            new Circle(1280/2, 1024/2, 1),
-        };
-                ctx.Initialize(ContextInit).Render(() => ContextRender(program, shapes));
+                    new Circle(1280/2, 1024/2, 1),
+                };
+
+                ctx.Initialize(() => ContextInit(ctx, program)).Render(() => ContextRender(program, shapes));
             }
         }
 
-        void ContextInit(EGL.KMSContext ctx)
+        void ContextInit(EGL.KMSContext ctx, GfxProgram program)
         {
             Console.WriteLine($"GL Extensions: {OpenGL.ES.GetString(OpenGL.Def.StringName.Extensions)}");
             Console.WriteLine($"GL Version: {OpenGL.ES.GetString(OpenGL.Def.StringName.Version)}");
@@ -62,6 +64,10 @@ internal class Program
 
             OpenGL.ES.glClearColor(0f, 0f, 0f, 1f);
             OpenGL.ES.glViewport(0, 0, ctx.Width, ctx.Height);
+
+            var view_port_id = program.GetUniformIndex("view_port");
+            OpenGL.ES.glUniform2f(view_port_id, ctx.Width, ctx.Height);
+
         }
 
         void ContextRender(OpenGL.GFX.GfxProgram program,
@@ -111,23 +117,15 @@ internal class Program
 
 static class ProgramExtention
 {
-    public static void VertexParsing(this OpenGL.GFX.GfxProgram program)
+    public static void VertexParsing(this GfxProgram program)
     {
-        uint posAttrib = OpenGL.ES.glGetAttribLocation(program, "position");
-        OpenGL.ES.glEnableVertexAttribArray(posAttrib);
-        OpenGL.ES.glVertexAttribPointerN(posAttrib, 2, false, (uint)Marshal.SizeOf(typeof(Vertex)), 0);
-    }
-
-    public static void SetAttribute(this OpenGL.GFX.GfxProgram program, Type attributeType, string attributeName, int attributeSize, int offset)
-    {
-        uint attributeIndex = OpenGL.ES.glGetAttribLocation(program, attributeName);
-        OpenGL.ES.glEnableVertexAttribArray(attributeIndex);
-        OpenGL.ES.glVertexAttribPointerN(attributeIndex, attributeSize, false, (uint)Marshal.SizeOf(attributeType), offset);
+        // uint posAttrib = OpenGL.ES.glGetAttribLocation(program, "position");
+        // OpenGL.ES.glEnableVertexAttribArray(posAttrib);
+        // OpenGL.ES.glVertexAttribPointerN(posAttrib, 2, false, (uint)Marshal.SizeOf(typeof(Vertex)), 0);
+        
+        program.SetAttribute("position", typeof(Vertex), 2);
     }
     
-    public static uint GetUniform(this OpenGL.GFX.GfxProgram program, string uniFormName) =>
-        OpenGL.ES.glGetUniformLocation(program, uniFormName);
-
 }
 
 

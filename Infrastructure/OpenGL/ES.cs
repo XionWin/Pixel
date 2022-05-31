@@ -92,16 +92,16 @@ namespace OpenGL
         public static void glUseProgram(GFX.GfxProgram program) => glUseProgram(program.Id);
 
         [DllImport(Lib.Name, CallingConvention = CallingConvention.Cdecl)]
-        private static extern void glVertexAttribPointer (uint index, int size, Def.VertexAttribPointerType type, bool normalized, uint stride, nint pointer);
+        private static extern void glVertexAttribPointer (uint index, uint size, Def.VertexAttribPointerType type, bool normalized, uint stride, nint pointer);
 
-        public unsafe static void glVertexAttribPointerF(uint index, int size, bool normalized, uint stride, float[] data)
+        public unsafe static void glVertexAttribPointerF(uint index, uint size, bool normalized, uint stride, float[] data)
         {
             fixed(float *ptr = data)
             {
                 glVertexAttribPointer(index, size, Def.VertexAttribPointerType.Float, normalized, stride, (nint)ptr);
             }
         }
-        public unsafe static void glVertexAttribPointerN(uint index, int size, bool normalized, uint stride, nint offset)
+        public unsafe static void glVertexAttribPointerF(uint index, uint size, bool normalized, uint stride, uint offset)
         {
             glVertexAttribPointer(index, size, Def.VertexAttribPointerType.Float, normalized, stride, (nint)offset);
         }
@@ -155,5 +155,16 @@ namespace OpenGL
 
         [DllImport(Lib.Name, CallingConvention = CallingConvention.Cdecl)]
         unsafe public static extern void glUniformMatrix4fv (uint location, uint count, [MarshalAs(UnmanagedType.Bool)]bool transpose, float *value);
+
+        [DllImport(Lib.Name, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void glUniformMatrix2fv (uint location, uint count, [MarshalAs(UnmanagedType.Bool)]bool transpose, float[] value);
+
+        [DllImport(Lib.Name, CallingConvention = CallingConvention.Cdecl)]
+        unsafe public static extern void glUniformMatrix2fv (uint location, uint count, [MarshalAs(UnmanagedType.Bool)]bool transpose, float *value);
+
+        [DllImport(Lib.Name, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void glUniform2f (uint location, float v0, float v1);
+
+
     }
 }

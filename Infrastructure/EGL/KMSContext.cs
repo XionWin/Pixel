@@ -42,7 +42,7 @@ namespace EGL
         }
         #endregion
 
-        public KMSContext Initialize(Action<EGL.KMSContext> initFunc)
+        public KMSContext Initialize(Action initFunc)
         {
             this.Gbm.Surface
             .Initialize((bo, fb) =>
@@ -51,7 +51,7 @@ namespace EGL
                     Console.WriteLine($"set crtc: {setCrtcResult}");
                 this.Width = (int)bo.Width;
                 this.Height = (int)bo.Height;
-                initFunc?.Invoke(this);
+                initFunc?.Invoke();
             });
             return this;
         }
