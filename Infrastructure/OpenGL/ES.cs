@@ -157,12 +157,6 @@ namespace OpenGL
         unsafe public static extern void glUniformMatrix4fv (uint location, uint count, [MarshalAs(UnmanagedType.Bool)]bool transpose, float *value);
 
         [DllImport(Lib.Name, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void glUniformMatrix2fv (uint location, uint count, [MarshalAs(UnmanagedType.Bool)]bool transpose, float[] value);
-
-        [DllImport(Lib.Name, CallingConvention = CallingConvention.Cdecl)]
-        unsafe public static extern void glUniformMatrix2fv (uint location, uint count, [MarshalAs(UnmanagedType.Bool)]bool transpose, float *value);
-
-        [DllImport(Lib.Name, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glUniform2f (uint location, float v0, float v1);
 
 
