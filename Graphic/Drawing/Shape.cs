@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace Graphic.Drawing
@@ -6,8 +7,7 @@ namespace Graphic.Drawing
     {
         public Shape()
         {
-            OpenGL.ES.GenBuffers(1, out var vbo);
-            this.Vbo = vbo[0];
+            this.Vbo = OpenGL.ES.GenBuffers(1).First();
         }
         
         public uint Vbo { get; }

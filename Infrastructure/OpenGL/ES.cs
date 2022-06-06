@@ -138,10 +138,11 @@ namespace OpenGL
 
         [DllImport(Lib.Name, CallingConvention = CallingConvention.Cdecl)]
         private static extern void glGenBuffers (uint n, [In, Out] uint[] buffer);
-        public static void GenBuffers (uint n, out uint[] buffer)
+        public static uint[] GenBuffers (uint n)
         {
-            buffer = new uint[n];
+            var buffer = new uint[n];
             glGenBuffers(n, buffer);
+            return buffer;
         }
 
         [DllImport(Lib.Name, CallingConvention = CallingConvention.Cdecl)]
@@ -158,7 +159,6 @@ namespace OpenGL
 
         [DllImport(Lib.Name, CallingConvention = CallingConvention.Cdecl)]
         public static extern void glUniform2f (uint location, float v0, float v1);
-
 
     }
 }
