@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices;
-using Graphic.Drawing;
+﻿using Graphic.Drawing;
 using Graphic.Drawing.Color;
 using OpenGL.GFX;
 
@@ -38,7 +37,7 @@ internal class Program
         // }
 
         float angle = 0f;
-        var direction = true;
+        // var direction = true;
         using (var ctx = new EGL.KMSContext(drm, EGL.RenderableSurfaceType.OpenGLES) { VerticalSynchronization = true })
         {
             using (var program = new OpenGL.GFX.GfxProgram(@"shader/simple.vert", @"shader/simple.frag"))
@@ -47,7 +46,7 @@ internal class Program
                 OpenGL.ES.glBindVertexArray(0);
 
                 var shapes = new[] {
-                    new Circle(1280/2, 1024/2, 1),
+                    new Circle(1280/2, 1024/2, 100),
                 };
 
                 ctx.Initialize(() => ContextInit(ctx, program)).Render(() => ContextRender(program, shapes));
@@ -81,21 +80,21 @@ internal class Program
                 OpenGL.ES.glClearColor(rgb.R, rgb.G, rgb.B, rgb.A);
                 OpenGL.ES.glClear(OpenGL.Def.ClearBufferMask.ColorBufferBit);
 
-                shapes.AsParallel().ForAll(x =>
-                {
-                    if (x is Circle circle)
-                    {
-                        circle.Radius += direction ? 3 : -3;
-                        if (circle.Radius < 0)
-                        {
-                            direction = true;
-                        }
-                        else if (circle.Radius > 500)
-                        {
-                            direction = false;
-                        }
-                    }
-                });
+                // shapes.AsParallel().ForAll(x =>
+                // {
+                //     if (x is Circle circle)
+                //     {
+                //         circle.Radius += direction ? 3 : -3;
+                //         if (circle.Radius < 0)
+                //         {
+                //             direction = true;
+                //         }
+                //         else if (circle.Radius > 500)
+                //         {
+                //             direction = false;
+                //         }
+                //     }
+                // });
 
                 shapes.ToList().ForEach(x => x.Render(() => program.VertexParsing()));
             }
