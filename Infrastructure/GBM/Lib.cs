@@ -1,7 +1,5 @@
-namespace GBM
+namespace GBM;
+internal static class Lib 
 {
-    internal static class Lib 
-    {
-        public const string Name = "gbm";
-    }
+    public const string Name = "gbm";
 }

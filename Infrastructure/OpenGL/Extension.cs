@@ -1,6 +1,4 @@
-namespace OpenGL
+namespace OpenGL;
+public static class Extension
 {
-    public static class Extension
-    {
-    }
 }

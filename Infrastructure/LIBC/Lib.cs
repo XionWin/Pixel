@@ -1,7 +1,5 @@
-namespace LIBC
+namespace LIBC;
+internal static class Lib
 {
-    internal static class Lib 
-    {
-        public const string Name = "libc";
-    }
+    public const string Name = "libc";
 }

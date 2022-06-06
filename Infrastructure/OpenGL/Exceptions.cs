@@ -1,14 +1,12 @@
-namespace OpenGL
+namespace OpenGL;
+public class OpenGLESException : Exception
 {
-    public class OpenGLESException : Exception
+    public OpenGLESException()
     {
-        public OpenGLESException()
-        {
 
-        }
+    }
 
-        public OpenGLESException(string msg): base(msg)
-        {
-        }
+    public OpenGLESException(string msg) : base(msg)
+    {
     }
 }

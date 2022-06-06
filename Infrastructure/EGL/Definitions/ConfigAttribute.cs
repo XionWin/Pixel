@@ -1,10 +1,8 @@
-namespace EGL.Definitions
+namespace EGL.Definitions;
+enum ConfigAttribute
 {
-    enum ConfigAttribute
-    {
-        RedSize,
-        GreenSize,
-        BlueSize,
-        AlphaSize
-    }
+    RedSize,
+    GreenSize,
+    BlueSize,
+    AlphaSize
 }

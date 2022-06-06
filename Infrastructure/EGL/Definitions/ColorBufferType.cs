@@ -1,9 +1,7 @@
-namespace EGL.Definitions
+namespace EGL.Definitions;
+[Flags]
+enum ColorBufferType
 {
-    [Flags]
-    enum ColorBufferType
-    {
-        RgbBuffer = 0x308E,
-        LuminanceBuffer = 0x308F,
-    }
+    RgbBuffer = 0x308E,
+    LuminanceBuffer = 0x308F,
 }

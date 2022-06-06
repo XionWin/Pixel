@@ -1,7 +1,5 @@
-namespace DRM
+namespace DRM;
+internal static class Lib 
 {
-    internal static class Lib 
-    {
-        public const string Name = "drm";
-    }
+    public const string Name = "drm";
 }

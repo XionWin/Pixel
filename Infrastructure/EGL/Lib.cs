@@ -1,7 +1,5 @@
-namespace EGL
+namespace EGL;
+internal static class Lib 
 {
-    internal static class Lib 
-    {
-        public const string Name = "EGL";
-    }
+    public const string Name = "EGL";
 }

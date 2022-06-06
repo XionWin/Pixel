@@ -1,7 +1,5 @@
-namespace OpenGL
+namespace OpenGL;
+internal static class Lib
 {
-    internal static class Lib 
-    {
-        public const string Name = "GLESv2";
-    }
+    public const string Name = "GLESv2";
 }
