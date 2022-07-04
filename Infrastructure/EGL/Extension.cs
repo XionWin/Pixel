@@ -63,6 +63,7 @@ unsafe public static class Extension
         var desiredConfig = new[] {
             Definition.SURFACE_TYPE, (int)surfaceType,
             Definition.RENDERABLE_TYPE, Definition.OPENGL_ES3_BIT,
+            Definition.COLOR_BUFFER_TYPE, Definition.RGB_BUFFER,
             Definition.RED_SIZE, 8,
             Definition.GREEN_SIZE, 8,
             Definition.BLUE_SIZE, 8,

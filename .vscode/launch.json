@@ -11,7 +11,7 @@
             "preLaunchTask": "copy",
             "program": "dotnet",
             "args": ["App.dll"],
-            "cwd": "/home/pi/Documents/Bin/Guid.Net/",
+            "cwd": "/home/pi/Documents/Bin/Pixel/",
             "console": "internalConsole",
             "stopAtEntry": false,
             "pipeTransport": {
