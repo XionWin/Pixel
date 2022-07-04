@@ -12,32 +12,7 @@ internal class Program
         var fds = cards.Select(x => LIBC.Context.open(x, LIBC.OpenFlags.ReadWrite));
         var drm = DRM.Extension.GetDrm(fds);
 
-        // float angle = 0f;
-        // var direction = true;
-        // unsafe
-        // {
-        //     var glesWindow = SDL2.SDL.SDL_CreateWindow("OpenGL ES 3.0", 0, 0, 1920, 1080, SDL2.SDL.SDL_WindowFlags.SDL_WINDOW_OPENGL);
-        //     SDL2.SDL.SDL_SysWMinfo sysInfo = new SDL2.SDL.SDL_SysWMinfo();
-        //     SDL2.SDL.SDL_VERSION(out sysInfo.version); // Set SDL version
-        //     SDL2.SDL.SDL_GetWindowWMInfo(glesWindow, ref sysInfo);
-
-        //     using (var ctx = new EGL.WindowContext(sysInfo.info.x11.window, EGL.RenderableSurfaceType.OpenGLES) { VerticalSynchronization = true })
-        //     {
-        //         using (var program = new OpenGL.GFX.GfxProgram(@"shader/simplevertshader_v3.glsl", @"shader/simplefragshader_v3.glsl"))
-        //         {
-        //             OpenGL.ES.glUseProgram(program);
-        //             OpenGL.ES.glBindVertexArray(0);
-
-        //             var shapes = new [] {
-        //                 new Circle(1080/2, 1920/2, 1),
-        //             };
-        //             ctx.Render(() => ContextRender(program, shapes));
-        //         }
-        //     }
-        // }
-
         float angle = 0f;
-        // var direction = true;
         using (var ctx = new EGL.KMSContext(drm, EGL.RenderableSurfaceType.OpenGLES) { VerticalSynchronization = true })
         {
             using (var program = new OpenGL.GFX.GfxProgram(@"shader/simple.vert", @"shader/simple.frag"))
@@ -46,7 +21,7 @@ internal class Program
                 OpenGL.ES.glBindVertexArray(0);
 
                 var shapes = new[] {
-                    new Circle(1280/2, 1024/2, 100),
+                    new Circle(1280/2, 1024/2, 320),
                 };
 
                 ctx.Initialize(() => ContextInit(ctx, program)).Render(() => ContextRender(program, shapes));
@@ -79,22 +54,6 @@ internal class Program
 
                 OpenGL.ES.glClearColor(rgb.R, rgb.G, rgb.B, rgb.A);
                 OpenGL.ES.glClear(OpenGL.Def.ClearBufferMask.ColorBufferBit);
-
-                // shapes.AsParallel().ForAll(x =>
-                // {
-                //     if (x is Circle circle)
-                //     {
-                //         circle.Radius += direction ? 3 : -3;
-                //         if (circle.Radius < 0)
-                //         {
-                //             direction = true;
-                //         }
-                //         else if (circle.Radius > 500)
-                //         {
-                //             direction = false;
-                //         }
-                //     }
-                // });
 
                 shapes.ToList().ForEach(x => x.Render(() => program.VertexParsing()));
             }
