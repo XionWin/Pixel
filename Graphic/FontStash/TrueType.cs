@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices;
+
 namespace FontStash;
 public class TrueType
 {
@@ -5,8 +7,10 @@ public class TrueType
 	private const uint FIX = 1 << (int)FIX_SHIFT;
     private const uint FIX_MASK = FIX - 1;
 
-    static T get<T>(byte[] data, uint offset)
+    public unsafe static T Get<T>(byte[] data, uint offset)
+        where T: struct
     {
+        var len = Marshal.SizeOf<T>();
         return default;
     }
 

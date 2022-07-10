@@ -6,6 +6,9 @@ internal class Program
 {
     private static void Main(string[] args)
     {
+
+        var r = FontStash.TrueType.Get<int>(null, 0);
+
         var files = Directory.GetFiles("/dev/dri");
         var cards = files.Where(x => System.Text.RegularExpressions.Regex.IsMatch(x, @"/dev/dri/card\d+"));
 
@@ -23,7 +26,7 @@ internal class Program
                 var shapes = new[] {
                     new Circle(1080/2, 1920/2, 320),
                 };
-                
+
                 ctx.Initialize(() => ContextInit(ctx, program)).Render(() => ContextRender(program, shapes));
             }
         }
