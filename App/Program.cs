@@ -23,7 +23,7 @@ internal class Program
                 var shapes = new[] {
                     new Circle(1080/2, 1920/2, 320),
                 };
-
+                
                 ctx.Initialize(() => ContextInit(ctx, program)).Render(() => ContextRender(program, shapes));
             }
         }
