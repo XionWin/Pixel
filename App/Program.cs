@@ -21,7 +21,7 @@ internal class Program
                 OpenGL.ES.glBindVertexArray(0);
 
                 var shapes = new[] {
-                    new Circle(1280/2, 1024/2, 320),
+                    new Circle(1080/2, 1920/2, 320),
                 };
 
                 ctx.Initialize(() => ContextInit(ctx, program)).Render(() => ContextRender(program, shapes));
@@ -49,7 +49,7 @@ internal class Program
         {
             if (shapes is not null)
             {
-                var color = new HSLA(angle = angle >= 360 ? 0 : ++angle, 1f, 0.2f, 1f);
+                var color = new HSLA(angle = angle >= 360 ? 0 : ++angle, 1f, 0.3f, 1f);
                 var rgb = color.ToRGB();
 
                 OpenGL.ES.glClearColor(rgb.R, rgb.G, rgb.B, rgb.A);

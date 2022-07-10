@@ -8,7 +8,7 @@
             "args": [
                 "-r",
                 "${workspaceFolder}/App/bin/Debug/net6.0/*",
-                "pi@192.168.0.206:/home/pi/Documents/Bin/Pixel/"
+                "pi@192.168.0.205:/home/pi/Documents/Bin/Pixel/"
             ],
             "dependsOn": [
                 "build",
