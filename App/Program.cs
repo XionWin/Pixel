@@ -19,4 +19,5 @@ wnd.RenderFrame += args => {
     wnd.Title = (1000.0 / watch.ElapsedMilliseconds).ToString("0.000");
     watch.Restart();
 };
+
 wnd.Run();
