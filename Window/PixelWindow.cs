@@ -45,9 +45,19 @@ public static class PixelWindowExtension
     public static WindowIcon CreateWindowIcon()
     {
         using var image = (Image<Rgba32>)ImageSharp.Image.Load(Configuration.Default, "terraria.png");
-            return image.DangerousTryGetSinglePixelMemory(out var memory) &&
-            MemoryMarshal.AsBytes(memory.Span).ToArray() is byte[] imageBytes ?
+            return image.GetPixelData() is var pixelData &&
+            MemoryMarshal.AsBytes(pixelData).ToArray() is byte[] imageBytes ?
             new WindowIcon(new OpenTK.Windowing.Common.Input.Image(image.Width, image.Height, imageBytes)) :
             throw new Exception();
+    }
+
+    public static Span<TPixel> GetPixelData<TPixel>(this Image<TPixel> image)
+    where TPixel : unmanaged, IPixel<TPixel>
+    {
+        var size = image.Frames.RootFrame.Size();
+        var pixels = new TPixel[size.Width * size.Height];
+        var span = new Span<TPixel>(pixels);
+        image.CopyPixelDataTo(span);
+        return span;
     }
 }

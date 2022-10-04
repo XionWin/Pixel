@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include = "..\SemanticExtension\SemanticExtension.csproj" />
     <ProjectReference Include = "..\Window\Window.csproj" />
   </ItemGroup>
 </Project>
