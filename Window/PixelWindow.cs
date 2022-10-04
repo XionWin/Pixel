@@ -16,7 +16,7 @@ public class PixelWindow : GameWindow
         255, 51, 51, 255,
     };
 
-    public PixelWindow(int width, int height) :
+    public PixelWindow(string title, int width, int height) :
         base(
             new()
             {
@@ -25,7 +25,7 @@ public class PixelWindow : GameWindow
             },
             new NativeWindowSettings()
             {
-                Title = "Pixel Renderer",
+                Title = title,
                 Size = new OpenTK.Mathematics.Vector2i(width, height),
                 API = ContextAPI.OpenGL,
                 APIVersion = new Version(3, 2),
