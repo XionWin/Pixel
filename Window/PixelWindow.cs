@@ -16,7 +16,7 @@ public class PixelWindow : GameWindow
         255, 51, 51, 255,
     };
 
-    public PixelWindow(string title, int width, int height) :
+    public PixelWindow(string title, int width, int height, string? iconPath = null) :
         base(
             new()
             {
@@ -29,7 +29,7 @@ public class PixelWindow : GameWindow
                 Size = new OpenTK.Mathematics.Vector2i(width, height),
                 API = ContextAPI.OpenGL,
                 APIVersion = new Version(3, 2),
-                Icon = PixelWindowExtension.CreateWindowIcon(),
+                Icon = iconPath?.Then(x => PixelWindowExtension.CreateWindowIcon(x)),
             }
         )
     { }
@@ -43,9 +43,9 @@ public class PixelWindow : GameWindow
 
 public static class PixelWindowExtension
 {
-    public static WindowIcon CreateWindowIcon()
+    public static WindowIcon CreateWindowIcon(string iconPath)
     {
-        using var image = (Image<Rgba32>)ImageSharp.Image.Load(Configuration.Default, "terraria.png");
+        using var image = (Image<Rgba32>)ImageSharp.Image.Load(Configuration.Default, iconPath);
         return image.GetPixelData() is var pixelSpan &&
         MemoryMarshal.AsBytes(pixelSpan).ToArray() is byte[] imageBytes ?
         new WindowIcon(new OpenTK.Windowing.Common.Input.Image(image.Width, image.Height, imageBytes)) :
