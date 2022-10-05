@@ -6,11 +6,6 @@ public static class Extension
         action?.Invoke(source);
         return source;
     }
-    public static IEnumerator<T> With<T>(this IEnumerator<T> source, Action<IEnumerator<T>> action)
-    {
-        action?.Invoke(source);
-        return source;
-    }
 
     public static TResult Then<T, TResult>(this T source, Func<T, TResult> function) =>
     function.Invoke(source);
