@@ -11,11 +11,6 @@ using ImageSharp = SixLabors.ImageSharp;
 namespace Window;
 public class PixelWindow : GameWindow
 {
-    private readonly static byte[] ICON_DATA = new byte[]
-    {
-        255, 51, 51, 255,
-    };
-
     public PixelWindow(string title, int width, int height, string? iconPath = null) :
         base(
             new()
@@ -34,8 +29,19 @@ public class PixelWindow : GameWindow
         )
     { }
 
+    public double Frequency
+    {
+        set => this.RenderFrequency = this.UpdateFrequency = value;
+    }
+
+    private System.Diagnostics.Stopwatch fpsWatch = new System.Diagnostics.Stopwatch().With(x => x.Start());
     protected override void OnRenderFrame(FrameEventArgs args)
     {
+        if(fpsWatch.ElapsedMilliseconds > 1000)
+        {
+            Console.WriteLine($"fps: {(uint)(1.0/ args.Time)}");
+            fpsWatch.Restart();
+        }
         base.OnRenderFrame(args);
         this.SwapBuffers();
     }

@@ -7,7 +7,7 @@ Console.WriteLine("Pixel Debug Started");
 
 
 new Window.PixelWindow("Pixel", 1920, 1280, "terraria.png")
-.With(x => x.VSync = VSyncMode.On)
+.With(x => x.VSync = VSyncMode.Adaptive)
 .With(x => x.RenderFrame += args =>
 {
     GL.ClearColor(0, 0, 0, 1);
