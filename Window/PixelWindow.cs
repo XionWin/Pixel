@@ -22,24 +22,27 @@ public class PixelWindow : GameWindow
             {
                 Title = title,
                 Size = new OpenTK.Mathematics.Vector2i(width, height),
-                API = ContextAPI.OpenGL,
+                API = ContextAPI.OpenGLES,
                 APIVersion = new Version(3, 2),
                 Icon = iconPath?.Then(x => PixelWindowExtension.CreateWindowIcon(x)),
             }
         )
-    { }
-
-    public double Frequency
     {
-        set => this.RenderFrequency = this.UpdateFrequency = value;
+        this.Title = title;
     }
+
+    public new string Title
+    {
+        get;
+        set;
+    } = string.Empty;
 
     private System.Diagnostics.Stopwatch fpsWatch = new System.Diagnostics.Stopwatch().With(x => x.Start());
     protected override void OnRenderFrame(FrameEventArgs args)
     {
         if(fpsWatch.ElapsedMilliseconds > 1000)
         {
-            Console.WriteLine($"fps: {(uint)(1.0/ args.Time)}");
+            base.Title = $"{this.Title} 🚀 fps: {(uint)(1.0/ args.Time)}";
             fpsWatch.Restart();
         }
         base.OnRenderFrame(args);
