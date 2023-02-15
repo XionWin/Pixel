@@ -6,7 +6,7 @@ using SemanticExtension;
 Console.WriteLine("Pixel Debug Started");
 
 
-new Window.PixelWindow("Pixel", 1920, 1280, "terraria.png")
+new Window.PixelWindow("Pixel", 720, 720, "terraria.png")
 .With(x => x.VSync = VSyncMode.Adaptive)
 .With(x => x.RenderFrame += args =>
 {
