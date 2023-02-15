@@ -5,7 +5,7 @@ public delegate void RenderUpdateHandler<T>(T context, ref int[] rect, byte[] da
 public delegate void RenderDrawHandler<T>(T context, float[] verts, float[] tcoords, uint[] colors, int nverts);
 public delegate void RenderDeleteHandler<T>(T context);
 
-public struct FontParams<T>
+public class FontParams<T>
 {
     public int Width { get; set; }
     public int Height { get; set; }

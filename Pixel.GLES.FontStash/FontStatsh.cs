@@ -5,7 +5,7 @@ using SemanticExtension;
 namespace Pixel.GLES.FontStash;
 public static class FontStash
 {
-    public static void Create(int width, int height, FontFlags fontFlags)
+    public static Pixel.FontStash.FontContext<FontContext> Create(int width, int height, FontFlags fontFlags)
     {
         var fontParams = new FontParams<FontContext>()
             .With(x => x.Width = width)
@@ -17,6 +17,8 @@ public static class FontStash
             .With(x => x.RenderDraw = RenderDraw)
             .With(x => x.RenderDelete = RenderDelete)
             .With(x => x.Context = new FontContext());
+
+            return Pixel.FontStash.FontStash.Create(ref fontParams);
     }
     
     private static bool RenderCreate(FontContext context, int width, int height)
@@ -26,6 +28,7 @@ public static class FontStash
             GL.DeleteTextures(1, context.Textures);
             context.Textures = null;
         }
+        context.Textures = new uint[1];
         GL.GenTextures(1, context.Textures);
         if (context.Textures is null) return false;
 
@@ -35,9 +38,9 @@ public static class FontStash
         {
             GL.BindTexture(TextureTarget.Texture2D, texture);
             GL.TexImage2D(TextureTarget2d.Texture2D, 0, TextureComponentCount.Alpha,
-                context.Width, context.Height, 0, PixelFormat.Alpha, PixelType.UnsignedByte, IntPtr.Zero);
+            context.Width, context.Height, 0, PixelFormat.Alpha, PixelType.UnsignedByte, IntPtr.Zero);
             GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter,
-                (int)TextureMinFilter.Linear);
+            (int)TextureMinFilter.Linear);
         }
         return true;
     }

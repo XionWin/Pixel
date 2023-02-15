@@ -1,7 +1,7 @@
 ﻿using OpenTK.Graphics.ES30;
 using OpenTK.Windowing.Common;
 using Pixel.FontStash;
-using FontStash = Pixel.FontStash.FontStash;
+using FontStash = Pixel.GLES.FontStash.FontStash;
 using Pixel.Window;
 using SemanticExtension;
 
