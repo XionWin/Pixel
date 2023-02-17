@@ -22,7 +22,4 @@ static void OnRenderFrame(FrameEventArgs args)
     GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
     GL.DrawArrays(PrimitiveType.Lines, 0, 2);
     
-
-    
-    
 }
