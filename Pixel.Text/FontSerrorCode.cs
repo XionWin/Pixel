@@ -1,4 +1,4 @@
-namespace Pixel.FontStash;
+namespace Pixel.Text;
 public enum FontSerrorCode
 {		// Font atlas is full.
     ATLAS_FULL = 1,

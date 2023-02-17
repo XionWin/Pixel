@@ -1,4 +1,4 @@
-namespace Pixel.FontStash;
+namespace Pixel.Text;
 public enum FontFlags
 {
 	TOPLEFT = 1,

@@ -1,15 +1,29 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>$(DefineConstants)TRACE;ES30</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>$(DefineConstants)TRACE;ES30</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
-    <ProjectReference Include = "..\SemanticExtension\SemanticExtension.csproj" />
-    <ProjectReference Include = "..\Pixel.Window\Pixel.Window.csproj" />
-    <ProjectReference Include = "..\Pixel.GLES.FontStash\Pixel.GLES.FontStash.csproj" />
+    <ProjectReference Include="..\SemanticExtension\SemanticExtension.csproj" />
+    <ProjectReference Include="..\Pixel.Window\Pixel.Window.csproj" />
+    <ProjectReference Include="..\Pixel.OpenGL.Text\Pixel.OpenGL.Text.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\Icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

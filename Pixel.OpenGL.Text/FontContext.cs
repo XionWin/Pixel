@@ -1,4 +1,4 @@
-namespace Pixel.GLES.FontStash;
+namespace Pixel.OpenGL.Text;
 public class FontContext
 {
     public uint[]? Textures { get; set; }

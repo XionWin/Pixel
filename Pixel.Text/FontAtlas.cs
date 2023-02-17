@@ -1,4 +1,4 @@
-namespace Pixel.FontStash;
+namespace Pixel.Text;
 public struct FontAtlas
 {
 	public int Width { get; set; }

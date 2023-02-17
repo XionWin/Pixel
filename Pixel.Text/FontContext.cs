@@ -1,4 +1,4 @@
-namespace Pixel.FontStash;
+namespace Pixel.Text;
 
 public delegate void HandleErrorHandler(object uptr, FontSerrorCode error, int val);
 

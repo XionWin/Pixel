@@ -1,6 +1,6 @@
 ﻿using SemanticExtension;
 
-namespace Pixel.FontStash;
+namespace Pixel.Text;
 public static class FontStash
 {
 
@@ -40,6 +40,7 @@ public static class FontStash
             context.itHeight = 1f / context.FontParams.Height;
             context.TexData = new byte[context.FontParams.Width * context.FontParams.Height];
 
+            context.DirtyRect = new int[4];
             context.DirtyRect![0] = context.FontParams.Width;
             context.DirtyRect![1] = context.FontParams.Height;
             context.DirtyRect![2] = 0;

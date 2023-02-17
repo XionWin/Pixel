@@ -1,11 +1,10 @@
-﻿using OpenTK.Graphics.ES30;
-using Pixel.FontStash;
+﻿using Pixel.Text;
 using SemanticExtension;
 
-namespace Pixel.GLES.FontStash;
+namespace Pixel.OpenGL.Text;
 public static class FontStash
 {
-    public static Pixel.FontStash.FontContext<FontContext> Create(int width, int height, FontFlags fontFlags)
+    public static Pixel.Text.FontContext<FontContext> Create(int width, int height, FontFlags fontFlags)
     {
         var fontParams = new FontParams<FontContext>()
             .With(x => x.Width = width)
@@ -18,7 +17,7 @@ public static class FontStash
             .With(x => x.RenderDelete = RenderDelete)
             .With(x => x.Context = new FontContext());
 
-            return Pixel.FontStash.FontStash.Create(ref fontParams);
+            return Pixel.Text.FontStash.Create(ref fontParams);
     }
     
     private static bool RenderCreate(FontContext context, int width, int height)

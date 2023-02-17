@@ -1,4 +1,4 @@
-namespace Pixel.FontStash;
+namespace Pixel.Text;
 public class FontState
 {
 	public int Font { get; set; }

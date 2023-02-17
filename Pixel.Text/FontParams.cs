@@ -1,4 +1,4 @@
-namespace Pixel.FontStash;
+namespace Pixel.Text;
 public delegate bool RenderCreateHandler<T>(T context, int width, int height); 
 public delegate bool RenderResizeHandler<T>(T context, int width, int height);
 public delegate void RenderUpdateHandler<T>(T context, ref int[] rect, byte[] data);
