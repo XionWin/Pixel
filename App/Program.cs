@@ -6,24 +6,14 @@ using Pixel.Window;
 using SemanticExtension;
 
 // See https://aka.ms/new-console-template for more information
-Console.WriteLine("Pixel Debug Started");
+Console.WriteLine("Pixel");
 
 
-new PixelWindow("Pixel", 720, 720, "Resources/Terraria.png")
+new PixelWindow("Pixel", 720, 720, "Resources/Icon.png")
     .With(x => x.VSync = VSyncMode.Adaptive)
-    .With(x => x.Load += OnLoad)
-    .With(x => x.RenderFrame += OnRenderFrame)
+    .With(x => x.Load += () => {
+        GL.ClearColor(System.Drawing.Color.MidnightBlue);
+        FontStash.Create(720, 720, FontFlags.TOPLEFT);
+    })
+    .With(x => x.RenderFrame += args => GL.Clear(ClearBufferMask.ColorBufferBit))
     .Run();
-
-
-static void OnLoad()
-{
-    GL.ClearColor(System.Drawing.Color.MidnightBlue);
-    FontStash.Create(720, 720, FontFlags.TOPLEFT);
-}
-
-static void OnRenderFrame(FrameEventArgs args)
-{
-    // GL.ClearColor(0, 0, 0, 1);
-    GL.Clear(ClearBufferMask.ColorBufferBit);
-}

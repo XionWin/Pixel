@@ -4,7 +4,7 @@ public delegate void HandleErrorHandler(object uptr, FontSerrorCode error, int v
 
 public class FontContext<T>
 {
-    public FontParams<T> FontParams { get; set; }
+    public FontParams<T>? FontParams { get; set; }
     public float itWidth { get; set; }
     public float itHeight { get; set; }
     public byte[]? TexData { get; set; }

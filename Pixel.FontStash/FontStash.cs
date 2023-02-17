@@ -22,7 +22,7 @@ public static class FontStash
 
         if (context.FontParams.RenderCreate is not null)
         {
-            if(context.FontParams.RenderCreate(context.FontParams.Context, context.FontParams.Width, context.FontParams.Height) is false)
+            if(context.FontParams.RenderCreate(context.FontParams.Context!, context.FontParams.Width, context.FontParams.Height) is false)
                 throw new Exception("Error init renderCreate");
 
             context.Atlas = AllocAtlas(context.FontParams.Width, context.FontParams.Height, INIT_ATLAS_NODES);
@@ -32,8 +32,30 @@ public static class FontStash
             for (int i = 0; i < INIT_FONTS; i++)
                 context.Fonts[i] = new Font();
 
+            context.cFonts = INIT_FONTS;
+            context.nFonts = 0;
+
+            //Create texture for the cache.
+            context.itWidth = 1f / context.FontParams.Width;
+            context.itHeight = 1f / context.FontParams.Height;
+            context.TexData = new byte[context.FontParams.Width * context.FontParams.Height];
+
+            context.DirtyRect![0] = context.FontParams.Width;
+            context.DirtyRect![1] = context.FontParams.Height;
+            context.DirtyRect![2] = 0;
+            context.DirtyRect![3] = 0;
+
+            // Add white rect at 0,0 for debug drawing.
+
         }
         return context;
+    }
+
+    private static void AddWhiteRect<T>(FontContext<T> context, int width, int height)
+    {
+        int x, y, gx = 0, gy = 0;
+        byte[] dst;
+        
     }
 
     private static FontAtlas AllocAtlas(int width, int height, uint nodeLen)
