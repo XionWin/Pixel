@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pixel.Text", "Pixel.Text\Pi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pixel.OpenGL.Text", "Pixel.OpenGL.Text\Pixel.OpenGL.Text.csproj", "{2D947892-218B-4728-8CE2-6F494933E46D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pixel.Graphics", "Pixel.Graphics\Pixel.Graphics.csproj", "{2BFB1896-B1F4-485B-A03B-AC577EFA2292}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pixel.OpenGL.Graphics", "Pixel.OpenGL.Graphics\Pixel.OpenGL.Graphics.csproj", "{10F9A805-126E-43DE-8FFF-F6158FC3765D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{2D947892-218B-4728-8CE2-6F494933E46D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D947892-218B-4728-8CE2-6F494933E46D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D947892-218B-4728-8CE2-6F494933E46D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BFB1896-B1F4-485B-A03B-AC577EFA2292}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BFB1896-B1F4-485B-A03B-AC577EFA2292}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BFB1896-B1F4-485B-A03B-AC577EFA2292}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BFB1896-B1F4-485B-A03B-AC577EFA2292}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10F9A805-126E-43DE-8FFF-F6158FC3765D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10F9A805-126E-43DE-8FFF-F6158FC3765D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10F9A805-126E-43DE-8FFF-F6158FC3765D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10F9A805-126E-43DE-8FFF-F6158FC3765D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

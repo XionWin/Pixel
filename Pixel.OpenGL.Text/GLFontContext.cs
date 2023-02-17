@@ -1,5 +1,5 @@
 namespace Pixel.OpenGL.Text;
-public class FontContext
+public class GLFontContext
 {
     public uint[]? Textures { get; set; }
     public int Width { get; set; }

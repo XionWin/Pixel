@@ -1,6 +1,6 @@
 ﻿using OpenTK.Windowing.Common;
 using Pixel.Text;
-using FontStash = Pixel.OpenGL.Text.FontStash;
+using GLFontStash = Pixel.OpenGL.Text.GLFontStash;
 using Pixel.Window;
 using SemanticExtension;
 
@@ -11,7 +11,7 @@ new PixelWindow("Pixel", 720, 720, "Resources/Icon.png")
     .With(x => x.VSync = VSyncMode.Adaptive)
     .With(x => x.Load += () => {
         GL.ClearColor(System.Drawing.Color.MidnightBlue);
-        FontStash.Create(720, 720, FontFlags.TOPLEFT);
+        GLFontStash.Create(720, 720, FontFlags.TOPLEFT);
     })
     .With(x => x.RenderFrame += OnRenderFrame)
     .Run();

@@ -2,11 +2,11 @@
 using SemanticExtension;
 
 namespace Pixel.OpenGL.Text;
-public static class FontStash
+public static class GLFontStash
 {
-    public static Pixel.Text.FontContext<FontContext> Create(int width, int height, FontFlags fontFlags)
+    public static FontContext<GLFontContext> Create(int width, int height, FontFlags fontFlags)
     {
-        var fontParams = new FontParams<FontContext>()
+        var fontParams = new FontParams<GLFontContext>()
             .With(x => x.Width = width)
             .With(x => x.Height = height)
             .With(x => x.FontFlags = fontFlags)
@@ -15,12 +15,12 @@ public static class FontStash
             .With(x => x.RenderUpdate = RenderUpdate)
             .With(x => x.RenderDraw = RenderDraw)
             .With(x => x.RenderDelete = RenderDelete)
-            .With(x => x.Context = new FontContext());
+            .With(x => x.Context = new GLFontContext());
 
             return Pixel.Text.FontStash.Create(ref fontParams);
     }
     
-    private static bool RenderCreate(FontContext context, int width, int height)
+    private static bool RenderCreate(GLFontContext context, int width, int height)
     {
         if (context.Textures is not null)
         {
@@ -44,19 +44,19 @@ public static class FontStash
         return true;
     }
 
-    private static bool RenderResize(FontContext context, int width, int height)
+    private static bool RenderResize(GLFontContext context, int width, int height)
     {
         throw new NotImplementedException();
     }
-    private static void RenderUpdate(FontContext context, ref int[] rect, byte[] data)
+    private static void RenderUpdate(GLFontContext context, ref int[] rect, byte[] data)
     {
         throw new NotImplementedException();
     }
-    private static void RenderDraw(FontContext context, float[] verts, float[] tcoords, uint[] colors, int nverts)
+    private static void RenderDraw(GLFontContext context, float[] verts, float[] tcoords, uint[] colors, int nverts)
     {
         throw new NotImplementedException();
     }
-    private static void RenderDelete(FontContext context)
+    private static void RenderDelete(GLFontContext context)
     {
         throw new NotImplementedException();
     }

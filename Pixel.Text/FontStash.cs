@@ -3,16 +3,15 @@
 namespace Pixel.Text;
 public static class FontStash
 {
-
-		public const uint SCRATCH_BUF_SIZE = 16000;
-		public const uint HASH_LUT_SIZE = 256;
-		public const uint INIT_FONTS = 4;
-		public const uint INIT_GLYPHS = 256;
-		public const uint INIT_ATLAS_NODES = 256;
-		public const uint VERTEX_COUNT = 1024;
-		public const uint MAX_STATES = 20;
-		public const int INVALID = -1;
-		public const int MAX_FALLBACKS = 20;
+    public const uint SCRATCH_BUF_SIZE = 16000;
+    public const uint HASH_LUT_SIZE = 256;
+    public const uint INIT_FONTS = 4;
+    public const uint INIT_GLYPHS = 256;
+    public const uint INIT_ATLAS_NODES = 256;
+    public const uint VERTEX_COUNT = 1024;
+    public const uint MAX_STATES = 20;
+    public const int INVALID = -1;
+    public const int MAX_FALLBACKS = 20;
 
     public static FontContext<T> Create<T>(ref FontParams<T> fontParams)
     {
@@ -22,7 +21,7 @@ public static class FontStash
 
         if (context.FontParams.RenderCreate is not null)
         {
-            if(context.FontParams.RenderCreate(context.FontParams.Context!, context.FontParams.Width, context.FontParams.Height) is false)
+            if (context.FontParams.RenderCreate(context.FontParams.Context!, context.FontParams.Width, context.FontParams.Height) is false)
                 throw new Exception("Error init renderCreate");
 
             context.Atlas = AllocAtlas(context.FontParams.Width, context.FontParams.Height, INIT_ATLAS_NODES);
@@ -56,7 +55,7 @@ public static class FontStash
     {
         int x, y, gx = 0, gy = 0;
         byte[] dst;
-        
+
     }
 
     private static FontAtlas AllocAtlas(int width, int height, uint nodeLen)

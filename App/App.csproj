@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SemanticExtension\SemanticExtension.csproj" />
     <ProjectReference Include="..\Pixel.Window\Pixel.Window.csproj" />
+	  <ProjectReference Include="..\Pixel.OpenGL.Graphics\Pixel.OpenGL.Graphics.csproj" />
     <ProjectReference Include="..\Pixel.OpenGL.Text\Pixel.OpenGL.Text.csproj" />
   </ItemGroup>
 
