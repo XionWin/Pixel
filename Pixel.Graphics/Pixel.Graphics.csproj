@@ -9,6 +9,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\SemanticExtension\SemanticExtension.csproj" />
+		<ProjectReference Include="..\Pixel.Core\Pixel.Core.csproj" />
 	</ItemGroup>
 
 </Project>

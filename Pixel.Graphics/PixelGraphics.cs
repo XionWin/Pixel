@@ -6,7 +6,6 @@ namespace Pixel.Graphics;
 public abstract class PixelGraphics
 {
     public Size Size { get; private set; }
-
     public bool IsDirty { get; private set; } = true;
 
     protected PixelGraphics(Size size)
