@@ -38,11 +38,13 @@ public class PixelWindow : GameWindow
     } = string.Empty;
 
     private System.Diagnostics.Stopwatch fpsWatch = new System.Diagnostics.Stopwatch().With(x => x.Start());
+
+    private const string TITLE_MESSAGE_FORMAT = @"{0} 🚀 fps: {1}";
     protected override void OnRenderFrame(FrameEventArgs args)
     {
-        if(fpsWatch.ElapsedMilliseconds > 1000)
+        if (fpsWatch.ElapsedMilliseconds > 200)
         {
-            base.Title = $"{this.Title} 🚀 fps: {(uint)(1.0/ args.Time)}";
+            base.Title = string.Format(TITLE_MESSAGE_FORMAT, this.Title, (uint)(1.0 / args.Time));
             fpsWatch.Restart();
         }
         base.OnRenderFrame(args);
